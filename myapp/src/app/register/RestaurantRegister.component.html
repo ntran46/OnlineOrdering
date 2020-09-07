@@ -1,0 +1,146 @@
+<mat-card class="my-card">
+    <mat-card-header>
+      <mat-card-title>Restaurant Partner Registration</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="my-form">
+        <mat-tab-group>
+          <mat-tab label="General Information" class="my-tab">
+            <table style="width: 100%" cellspacing="10">
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Restaurant Name</mat-label>
+                    <input matInput placeholder="Restaurant Name" [(ngModel)]="_restaurantName" name="restaurantName" #restaurantName="ngModel" required>
+                    <mat-error *ngIf="restaurantName?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Street Address</mat-label>
+                    <textarea matInput placeholder="Street Address" [(ngModel)]="_strAddress" name="strAddress" #strAddress="ngModel" required></textarea>
+                    <mat-error *ngIf="strAddress?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <input matInput placeholder="City" [(ngModel)]="_city" name="city" #city="ngModel"  required>
+                    <mat-error *ngIf="city?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Zip Code</mat-label>
+                    <input matInput placeholder="Zip Code" [(ngModel)]="_zipcode" name="zipcode" #zipcode="ngModel"  required>
+                    <mat-error *ngIf="zipcode?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" [(ngModel)]="_email" name="email" #email="ngModel"  required>
+                    <mat-error *ngIf="email?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Food License</mat-label>
+                    <input matInput placeholder="Food License" [(ngModel)]="_license" name="license" #license="ngModel"  required>
+                    <mat-error *ngIf="license?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput placeholder="Phone Number" [(ngModel)]="_phoneNo" name="phoneNo" #phoneNo="ngModel"  required>
+                    <mat-error *ngIf="phoneNo?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Description</mat-label>
+                    <textarea matInput placeholder="Description" [(ngModel)]="_description" name="description" #description="ngModel"  required></textarea>
+                    <mat-error *ngIf="description?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+          </mat-tab>
+          <!-- <mat-tab label="Other Information" class="my-tab">
+            <table style="width: 100%" cellspacing="10">
+              <tr>
+                <td>
+  
+                  <mat-checkbox [checked]="isCompany"> Is company?</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Created At</mat-label>
+                    <input  [value]="createdAt.value"  matInput [matDatepicker]="picker" placeholder="Date of creation">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-label>Gender</mat-label>
+                  <mat-radio-group [(value)]="selectedGender" >
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                  </mat-radio-group>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Lead Source</mat-label>
+                    <mat-select [(value)]="selectedSource" placeholder="Source">
+                        <mat-option>None</mat-option>
+                        <mat-option value="email">Email Marketing</mat-option>
+                        <mat-option value="social">Social Media</mat-option>
+                        <mat-option value="affiliate">Affiliate</mat-option>
+                    </mat-select>
+  
+                  </mat-form-field>
+                </td>
+              </tr>
+  
+            </table>
+          </mat-tab> -->
+        </mat-tab-group>
+  
+  
+  
+  
+  
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button [disabled]="!email.valid || !phoneNo.valid || !restaurantName.valid || !strAddress.valid || !zipcode.valid" (click)="RegisterRestaurant()" color="primary">Create</button>
+    </mat-card-actions>
+  </mat-card>

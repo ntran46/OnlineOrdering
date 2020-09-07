@@ -1,0 +1,51 @@
+<br/>   
+<div *ngIf="reqInfo.authenticated">
+
+    <div *ngIf="reqInfo.roles.includes('Manager')">
+
+
+<button type="submit" (click)="RedirectToWaitingList()" 
+style="border: solid 2px black;background-color: #ddd;width: 4cm; text-align: center; font-size: large;"><b>Waiting List</b></button>
+<br/><br/>  
+<br/><br/>  
+
+<div *ngFor="let res of _RestaurantItem">
+    <div class="container2">
+
+        <table id="or_tb">
+            <tr>
+                <td style="width: 4.5cm;"><b>Restaurant Name</b></td>
+                <td style="width: 4cm;"></td>
+                <td style="width: 4cm;"><b>Location</b></td>
+                <td style="width: 4cm;"></td>
+                <td style="width: 3cm;"><b>Phone Number</b></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td >{{res.restaurantName}}</td>
+                <td></td>
+                <td>{{res.strAddress}}, {{res.city}}, {{res.zipcode}}</td>
+                <td></td>
+                <td>{{res.phoneNo}}</td>
+                <td></td>
+            </tr>
+            <tr style="height:0.5cm"></tr>
+            <tr>
+                <td></td>
+                <td colspan="3"><b>Description:</b> </td>
+                <td rowspan="2">
+                    <button style="width: 3cm;" type="submit">Menu</button> 
+                </td>
+                <td rowspan="2">
+                    <button style="width: 3cm;" (click)="deleteRestaurant(res._id)" type="submit">Delete</button> 
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3" >{{res.description}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</div></div>

@@ -1,0 +1,110 @@
+<br/><br/>
+
+<!-- Input of server's name and discount option -->
+<div class="container1">
+    <table>
+        <td><b>Server Name:</b></td>
+        <td id="w2"></td>
+        <input type="text" name="serverName" required [(ngModel)]="_serverName" pattern="[a-zA-Z ]*" #serverName="ngModel" >
+        <p *ngIf="serverName?.errors?.required"><i>This field is required.</i></p>
+        <p *ngIf="serverName?.errors?.pattern"><i>Only alphabetical characters are allowed.</i></p>
+
+        <td id="w2"></td>
+        <td><b>Appy 15% Discount:</b></td>
+        <input type="checkbox" name="discount" id="discount" (click)="applyDiscount()">
+    </table>
+</div>
+<br/>
+
+<!-- Show Order table -->
+<div *ngFor="let product of _productsArray">
+    <div class="container2">
+
+        <table id="or_tb">
+            <tr>
+                <td></td>
+                <td>{{product.productName}}</td>
+                <td></td>
+                <td>{{product.price}}</td>
+                <td></td>
+                <td>
+                    <button type="submit" id="inc" (click)="incrementValue(product._id, product.price)">+</button>
+                </td>
+                <td>
+                    <button type="submit" id="des" (click)="decrementValue(product._id, product.price)">-</button>
+                </td>
+                <td><p id="{{product._id}}">0</p></td>
+            </tr>
+        </table>
+    </div>
+</div>
+{{_errorMessage}}
+
+<br/><br/>
+
+<!-- Show non discount caculation -->
+
+<table id="non_dis_cal_tb">
+    <a>(No discount selected)</a>
+    <tr>
+        <th id="text_lft">Server Name</th>
+        <th id="text_rgt"> {{_serverName}}</th>
+    </tr>
+    <tr>
+        <td>Subtotal</td>
+        <td id="text_rgt">{{ _subTotal | currency:'USD':true }}</td>
+    </tr>
+    <tr>
+        <td>+ 7% Tax</td>
+        <td id="text_rgt">{{_tax | currency:'USD':true }}</td>
+    </tr>
+    <tr>
+        <td id="total">Total</td>
+        <td id="total_amount">{{_total | currency:'USD':true}}</td>
+    </tr>    
+    
+</table>
+<br/>
+
+<!-- Show discount caculation -->
+
+<table id="dis_cal_tb">
+    <a>(Discount selected)</a>
+    <tr>
+        <th id="text_lft">Server Name</th>
+        <th id="text_rgt"> {{_serverName}}</th>
+    </tr>
+    <tr>
+        <td>Subtotal</td>
+        <td id="text_rgt">{{ _subTotal | currency:'USD':true }}</td>
+    </tr>
+    <tr>
+        <td>15% Discount</td>
+        <td id="text_rgt">{{_subTotal * -0.15 | currency:'USD':true }}</td>
+    </tr>
+    <tr>
+        <td>+ 7% Tax</td>
+        <td id="text_rgt">{{ (_subTotal * 0.85)*0.07 | currency:'USD':true }}</td>
+    </tr>
+    <tr >
+        <td id="total">Total</td>
+        <td id="total_amount">{{ (_subTotal * 0.85)*0.07 + _subTotal | currency:'USD':true}}</td>
+    </tr>   
+
+</table>
+<br/>
+
+<!-- Button action -->
+
+<div class="container3">
+    <button type="submit" [disabled]="!serverName.valid || _total == 0" class="submit_btn" (click)="submitOrder(_serverName)">
+    <b>Submit Order</b>
+    </button> 
+    
+    <br/><br/>
+
+    <button type="reset" class="reset_btn" (click)="clearOrder()">
+        <b>Clear Order</b>
+    </button>
+
+</div>

@@ -1,0 +1,64 @@
+<br/><br/>    
+<div *ngIf="reqInfo.authenticated">
+
+    <div *ngIf="reqInfo.roles.includes('Manager')">
+
+<mat-icon>keyboard_return</mat-icon>
+<a style="font-size: larger;"href="/RestaurantManagement">Go back</a>        
+<br/>   <br/>   
+
+<div *ngFor="let res of _RestaurantItem; let i = index">
+    <div class="container2" >
+
+        <table id="or_tb">
+            <tr>
+                <td style="width: 4.5cm;"><b>Restaurant Name</b></td>
+                <td style="width: 4cm;"></td>
+                <td style="width: 4cm;"><b>Location</b></td>
+                <td style="width: 4cm;"></td>
+                <td style="width: 4cm;"><b>Phone Number</b></td>
+                <td style="width: 5cm;"><b>Food License</b></td>
+            </tr>
+            <tr id='{{res._id}}'>
+                
+                <td>
+                    <input type="checkbox" id='{{res.restaurantName}}' name="nameCheked" >
+                    {{res.restaurantName}}
+                    
+                </td>
+                <td></td>
+                <td>
+                    <input type="checkbox" id='{{res.strAddress}}' name="nameCheked" ng-model=res._id>
+                    {{res.strAddress}}, {{res.city}}, {{res.zipcode}}
+                </td>
+                <td></td>
+                <td>
+                    <input type="checkbox" id='{{res.phoneNo}}' name="nameCheked" ng-model=res._id>
+                    {{res.phoneNo}}
+                </td>
+                <td>
+                    <input type="checkbox" id='{{res.license}}' name="nameCheked" ng-model=res._id>
+                    {{res.license}}
+
+                </td>
+            </tr>
+            <tr style="height:0.5cm"></tr>
+            <tr>
+                <td></td>
+                <td colspan="3"><b>Description:</b> </td>
+                <td rowspan="2">
+                    <button style="width: 3cm" (click)="updateWaitingItem(res.email, 'Approved', res._id)" type="submit"> <i  class="material-icons md-18">done_all</i> Approved </button> 
+                </td>
+                <td rowspan="2">
+                    <button style="width: 3cm" (click)="updateWaitingItem(res.email, 'Declined', res._id)" type="submit"><i  class="material-icons md-dark md-inactive">cancel</i> Declined </button> 
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3" >{{res.description}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</div></div>

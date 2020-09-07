@@ -1,0 +1,56 @@
+<!-- <form #myForm="ngForm" style="padding-left: 10px;">
+  <table style="padding-top: 10px;">
+      <tr>
+          <td>Username: </td>
+          <td><input type="text" [(ngModel)]="_username" name="username"></td>
+      </tr>  
+      <tr>
+          <td>Password: </td>
+          <td><input type="password" [(ngModel)]="_password" name="password"></td>
+      </tr> 
+      <tr>
+          <td></td>
+          <td> <input type="submit" value="Submit" [disabled]="!myForm.form.valid" (click)="login()"></td>
+      </tr>
+  </table>
+  <p>{{_errorMessage}}</p>
+</form> -->
+
+
+
+<mat-card class="my-card" >
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="my-form" >  
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Username" [(ngModel)]="_username" name="username" #username="ngModel" required>
+              <mat-error *ngIf="username?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+            <input matInput placeholder="Password" [(ngModel)]="_password" type="password" name="password" #password="ngModel" required>
+            <mat-error *ngIf="password?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <p  id="errors">
+        {{ _errorMessage }}
+      </p>
+
+    </form>
+    <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button [disabled]="!username.valid || !password.valid" (click)="login()" color="primary">Sign In</button>
+  </mat-card-actions>
+</mat-card>

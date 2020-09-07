@@ -1,0 +1,42 @@
+    <br/><br/>    
+
+<div *ngFor="let res of _RestaurantItem">
+    <div class="container2"> 
+
+        <table id="or_tb">
+            <tr>
+                <td style="width: 4.5cm;"><b>Restaurant Name</b></td>
+                <td style="width: 4cm;"></td>
+                <td style="width: 4cm;"><b>Location</b></td>
+                <td style="width: 4cm;"></td>
+                <td style="width: 3cm;"><b>Phone Number</b></td>
+            </tr>
+            <tr>
+                <td >{{res.restaurantName}}</td>
+                <td></td>
+                <td>{{res.strAddress}}, {{res.city}}, {{res.zipcode}}</td>
+                <td></td>
+                <td>{{res.phoneNo}}</td>
+            </tr>
+            <tr style="height:0.5cm"></tr>
+            <tr>
+                <td></td>
+                <td colspan="3"><b>Description:</b> </td>
+                <td rowspan="2">
+                    <button mat-raised-button color="primary" style="width: 3cm;font-size: 15px;" (click)="getRestaurantMenu(res._id)" type="submit">Menu</button> 
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3">{{res.description}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <a href="ViewReview/{{res._id}}"> {{res.rating.stars || 0}} <span class="material-icons md-14">star_rate</span></a>
+                </td>
+                <td> <a href="ViewReview/{{res._id}}">Reviews</a></td>
+            </tr>
+        </table>
+    </div>
+</div>

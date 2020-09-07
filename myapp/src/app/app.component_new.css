@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+}
+
+#routerID{
+    font-family: 'Roboto', sans-serif !important;
+}
+*{
+    font-family: 'Roboto', sans-serif !important;
+
+}
+.navbar-brand{
+    max-width: 100px;
+    max-height: 100px;
+    margin-bottom: 5px;
+    border-top: #FC4445 2px solid;
+}
+.navbar-collapse{
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 0;
+}
+
+
+.navbar{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.btn{
+    background-color: #900000 !important;
+    border: none;
+    width: 100%;
+}
+body{
+    overflow-x: hidden !important;
+    height: 100vh;
+    background: #141d26;
+}
+
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    /* border: #eb586f 2px solid;
+    width: 110%;
+    font-size: 1.1rem; */
+    background-color: #FC4445;
+    box-shadow:0px 0px 10px #FC4445;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+
+.dropTable{
+    width: 30rem;
+    padding: 15px;
+    background-color: #243447;
+    color: white;
+}
+
+@media(min-width: 769px){
+    .imgContainer{
+        background: url(../assets/dance.gif);
+        background-position: center;
+        background-size: 90px 100px;
+        background-repeat: no-repeat;
+    }
+    .imgContainer img{
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    .imgContainer img{
+        display: block;
+        width: 50%;
+        height: auto;
+        margin-left: 25%;
+    }
+    .dropTable{
+        width: 100%;
+
+    }
+
+    .dropTable .btn{
+        margin: 10px 0px;
+        width: 100%;
+    }
+}
+
+@media(max-width: 513px){
+
+}
+
+.mat-input-wrapper{
+    width:400px !important;
+  }
+
+

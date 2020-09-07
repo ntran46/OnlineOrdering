@@ -1,0 +1,34 @@
+<br/><br/>    
+<div *ngIf="reqInfo.authenticated">
+
+<div>
+    <div class="container2">
+
+        <table id="or_tb">
+            <tr>
+                <th style="width: 4.5cm;"><b>Restaurant Name</b></th>
+                <!-- <td style="width: 4cm;"></td> -->
+                <th style="width: 4cm;"><b>Location</b></th>
+                <!-- <td style="width: 4cm;"></td> -->
+                <th style="width: 2cm;"><b>Rating</b></th>
+                <th style="width: 6cm;"><b>Comment</b></th>
+                <th style="width: 3cm;"><b>Date</b></th>
+            </tr *ngFor="let item of _reviewItems; let i = index">
+                <td>{{item.restaurantName}}</td>
+                <td>{{_RestaurantItem.strAddress + ","}} {{_RestaurantItem.city + ","}} {{_RestaurantItem.zipcode}}</td>
+                <td>{{item.userReview.rating}}</td>
+                <td>{{item.userReview.review || ""}}</td>
+                <td>{{item.userReview.date}}</td>
+                <td style="width: 2cm;text-align: right;">
+                    <a href="#" (click)="editReview(item._id)">Edit</a>
+                </td>
+                <td style="width: 2cm;text-align: right;">
+                    <a href="#" (click)="deleteReview(item._id)">Delete</a>
+                </td>
+        </table>
+
+    </div>
+</div>
+
+<br/>
+{{_errorMessage}}

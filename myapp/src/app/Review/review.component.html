@@ -1,0 +1,56 @@
+
+<br/>
+<h3>Review Detail </h3>
+
+<br/>
+<div class="container4">
+<table id="or_his">
+    <tr>
+        <th style="width: 4cm;"><b>Restaurant Name</b></th>
+        <th style="width: 5cm;"><b>Address</b></th>
+        <!-- <th style="width: 2cm;"><b>Rating</b></th> -->
+        <th style="width: 3cm;"><b>Phone Number</b></th>
+        <th style="width: 5cm;"><b>Description</b></th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>{{_RestaurantItem.restaurantName}}</td>
+        <td>{{_RestaurantItem.strAddress + ","}} {{_RestaurantItem.city + ","}} {{_RestaurantItem.zipcode}}</td>
+        <!-- <td>{{_RestaurantItem.rating}}</td> -->
+        <td>{{_RestaurantItem.phoneNo}}</td>
+        <td>{{_RestaurantItem.description}}</td>
+        <td rowspan="2" style="width: 2cm;text-align: center;">
+            <button type="submit" (click)="Menu(_RestaurantItem._id)" 
+                style="border: solid 2px black;background-color: #ddd;width: 5cm; text-align: center"><b>Menu</b></button>
+        </td>
+    </tr>
+</table>
+</div>
+<br/><br/>
+<br/>
+
+<button type="submit" (click)="WriteReview(_RestaurantItem._id)" 
+        style="border: solid 2px black;background-color: #ddd;width: 5cm; text-align: center"><b>Write a review</b></button>
+
+<br/>
+<br/>
+<br/>
+
+
+<div class="container4">
+    <table id="or_his">
+        <tr>
+            <th style="width: 3cm;"><b>Username</b></th>
+            <th style="width: 2cm;"><b>Rating</b></th>
+            <th style="width: 6cm;"><b>Comment</b></th>
+            <th style="width: 3cm;"><b>Date</b></th>
+        </tr>
+        <tr *ngFor="let item of _ReviewItem">
+            <td>{{item.username}}</td>
+            <td>{{item.userReview.rating || rating}}</td>
+            <td>{{item.userReview.review || ""}}</td>
+            <td>{{item.userReview.date || ""}}</td>
+        
+        </tr>
+    </table>
+    </div>

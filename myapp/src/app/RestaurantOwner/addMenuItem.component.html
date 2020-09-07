@@ -1,0 +1,109 @@
+<br/><br/>
+<div *ngIf="reqInfo.authenticated && reqInfo.roles.includes('RestaurantOwner')">
+
+    <mat-card class="my-card">
+        <mat-card-header>
+            <mat-card-title>Add Menu Item</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form autocomplete="off">
+            <!-- <mat-tab-group> -->
+              <!-- <mat-tab label="General Information" class="my-tab"> -->
+                <table style="width: 70%" cellspacing="10">
+                    <!-- <tr>
+                        <td>
+                            <mat-form-field>
+                            <mat-label>ID</mat-label>
+                            <input matInput placeholder="ID"  [(ngModel)]="_id" name="id" #id="ngModel" required>
+                        <mat-error *ngIf="id?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                         <mat-error *ngIf="username?.errors?.minlength" style="color:blue"><i>Username has at least four characters.</i></mat-error>
+                            </mat-form-field>
+                        </td>
+                        <td></td>
+                    </tr>   -->
+                  <tr>
+                    <td>
+                      <mat-form-field>
+                        
+                        <mat-label>Category</mat-label>
+                        <input matInput placeholder="Category*" [(ngModel)]="_category" name="category" #category="ngModel" required>
+                        <mat-error *ngIf="category?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                        <!-- <mat-error *ngIf="firstname?.errors?.minlength" style="color:blue"><i>Username has at least four characters.</i></mat-error> -->
+                      </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                          <mat-label>Item Name</mat-label>
+                          <input matInput placeholder="Item Name*" [(ngModel)]="_productName" name="productName" #productName="ngModel" required>
+                          <mat-error *ngIf="productName?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                          <!-- <mat-error *ngIf="lastname?.errors?.minlength" style="color:blue"><i>Last Name has at least four characters.</i></mat-error> -->
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                          <mat-label>Price</mat-label>
+                          <input matInput placeholder="Price*" [(ngModel)]="_price" name="price" #price="ngModel" required>
+                          <mat-error *ngIf="price?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            
+                <tr>
+                     
+                    <td colspan="2">
+                      <mat-form-field>
+                        <mat-label>Description</mat-label>
+                        <textarea  matInput style="width: 15cm;" placeholder="Description*" [(ngModel)]="_description" name="description" #description="ngModel" required></textarea>
+                        <mat-error *ngIf="description?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                      </mat-form-field>
+                    </td>
+                </tr>  
+                </table>
+              <!-- </mat-tab> -->
+        
+            <!-- </mat-tab-group> -->
+      
+        </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="addMenuItems()" color="primary">Create</button>
+        </mat-card-actions>
+    </mat-card>
+
+
+    <br/><br/>
+
+    <!-- Show all items -->
+    <h3 style="color:brown;"><b>All Available Items</b></h3>
+    <div class="container4" *ngFor="let category of menu">
+
+        <mat-accordion >
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="width: 5cm;color: blue;">
+                    <strong>{{category.category}}</strong>
+                    </mat-panel-title>
+                    <mat-panel-description style="width: 5cm;">
+                    <i>Category description</i>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-card-content>
+                    <table *ngFor="let item of category.items">
+                        <tr>
+                            <td style="width: 5cm;">{{item.productName}}</td>
+                            <!-- <td style="width: 5cm;"></td> -->
+                            <td style="width: 5cm;">{{item.description}}</td>
+                            <!-- <td style="width: 5cm;"></td> -->
+                            <td style="width: 5cm;">{{item.price | currency:'CAD':true }}</td>
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-expansion-panel>
+        </mat-accordion> 
+    </div>
+
+
+</div>
+<br/>
+{{_errorMessage}}

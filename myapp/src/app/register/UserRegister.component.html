@@ -1,0 +1,122 @@
+<mat-card class="my-card">
+    <mat-card-header>
+      <mat-card-title>User Registration</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="my-form" autocomplete="off">
+        <mat-tab-group>
+          <mat-tab label="General Information" class="my-tab">
+            <table style="width: 100%" cellspacing="10">
+                <tr>
+                    <td>
+                        <mat-form-field>
+                          <mat-label>User Name</mat-label>
+                          <input matInput placeholder="Username" [(ngModel)]="_username" name="username" #username="ngModel" minlength="4" required>
+                          <mat-error *ngIf="username?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                          <mat-error *ngIf="username?.errors?.minlength" style="color:blue"><i>Username has at least four characters.</i></mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>  
+              <tr>
+                <td>
+                  <mat-form-field>
+                    
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name*" [(ngModel)]="_firstname" name="firstname" #firstname="ngModel" required>
+                    <mat-error *ngIf="firstname?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                    <!-- <mat-error *ngIf="firstname?.errors?.minlength" style="color:blue"><i>Username has at least four characters.</i></mat-error> -->
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name*" [(ngModel)]="_lastname" name="lastname" #lastname="ngModel" required>
+                    <mat-error *ngIf="lastname?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                    <!-- <mat-error *ngIf="lastname?.errors?.minlength" style="color:blue"><i>Last Name has at least four characters.</i></mat-error> -->
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email*" [(ngModel)]="_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" #email="ngModel" required>
+                    <mat-error *ngIf="email?.errors?.pattern" style="color:blue"><i>Email format incorrect</i></mat-error>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="Password *" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$" [(ngModel)]="_password" name="password" #password="ngModel" required>
+                    <mat-error *ngIf="password?.errors?.pattern" style="color:blue"><i>Must contain at least 1 number, 1 uppercase, 1 lowercase letter, 1 special character, and at least 8 or more characters.</i></mat-error>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput type="password" placeholder="Confirm Password *" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$" [(ngModel)]="_confirm" name="confirm" #confirm="ngModel" required>
+                    <small><p *ngIf="_password != _confirm" style="color:red"><i>Password does not match</i></p></small>
+                  </mat-form-field>
+                </td>
+              </tr>
+              
+            </table>
+          </mat-tab>
+          <mat-tab label="Other Information" class="my-tab">
+            <table style="width: 100%" cellspacing="10">
+              <tr>
+                <td>
+                  <mat-label>Gender</mat-label>
+                  <mat-radio-group [(value)]="selectedGender" >
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                  </mat-radio-group>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <textarea matInput [(ngModel)]="_address" name="address" #address="ngModel" placeholder="Your Address"></textarea>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Zip code</mat-label>
+                    <input matInput type="text" [(ngModel)]="_zipcode" name="zipcode" #zipcode="ngModel" 
+                    placeholder="Zipcode *"/>
+                  </mat-form-field>
+                </td>
+              </tr> <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Mobile Phone</mat-label>
+                    <input matInput  type="text" [(ngModel)]="_txtEmpPhone" name="txtEmpPhone" #txtEmpPhone="ngModel" minlength="10" maxlength="10" name="txtEmpPhone" 
+                    placeholder="Your Phone Number *"/>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+          </mat-tab>
+        </mat-tab-group>
+  
+  
+  
+  
+  
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button [disabled]="!email.valid || !confirm.valid || !lastname.valid || !username.valid || !firstname.valid"
+      (click)="RegisterUser()" color="primary">Create</button>
+    </mat-card-actions>
+  </mat-card>

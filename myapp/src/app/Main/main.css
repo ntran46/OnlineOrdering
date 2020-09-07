@@ -1,0 +1,82 @@
+.container1 {
+    padding:0.1cm;
+    width:40%;
+}
+.container2 {
+    padding:0.5cm;
+    width:30%;
+    border: 2px solid black;
+}
+
+
+.container3{
+    text-align: right;
+    width:35%
+} 
+.container4{
+    margin-left:1cm;
+} 
+#non_dis_cal_tb {
+    width:34%;
+    border-collapse:collapse; 
+}
+#dis_cal_tb {
+    width:34%;
+    border-collapse:collapse;
+    visibility: hidden;
+}
+#or_tb td {
+    width: 2cm;
+}
+#w2 {
+    width: 2cm;
+}
+#text_rgt{
+    text-align: right;
+}
+#text_lft{
+    text-align: left;
+}
+#text_ctr{
+    text-align: center;
+}
+#total{
+    border-top: 2px solid #8ebf42;
+}
+#total_amount{
+    text-align: right;
+    border-top: 2px solid #8ebf42;
+}
+.submit_btn {
+    border: solid 1px black;
+    background-color: #ddd;
+    width: 3cm;
+}
+.reset_btn {
+    border: solid 1px black;
+    background-color: #ddd;
+    width: 3cm;
+}
+
+
+
+#or_his th {
+    border: solid 2px rgb(236, 236, 185); 
+    border-top: transparent;
+}
+
+#or_his td {
+    border: solid 2px rgb(236, 236, 185); 
+    border-bottom: transparent;
+    border-top: transparent;
+}
+#or_his {
+    border: solid 2px rgb(236, 236, 185); 
+    border-collapse:collapse;
+    border-left: transparent;
+    border-right: transparent;
+    border-top: transparent;
+    border-bottom: transparent;
+    text-align: center;
+}
+

@@ -1,0 +1,202 @@
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>My Account Infomation</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- <form class="my-form" autocomplete="off"> -->
+      <table id="ViewTable">
+        <tr>
+            <td>User Name: </td>
+            <td>{{_UserArray.username}}</td>
+        </tr>
+
+        <tr>
+            <td>First Name: </td>
+            <td>{{_UserArray.firstName}} </td>
+        </tr> 
+        <tr>
+            <td>Last Name: </td>
+            <td>{{_UserArray.lastName}}</td>
+        </tr>        
+        <tr>
+            <td>Email: </td>
+            <td>{{_UserArray.email}}</td>
+        </tr>                  
+        <tr>
+          <td>Phone Number: </td>
+          <td>{{_UserArray.txtEmpPhone}}</td>
+        </tr> 
+        <tr>
+          <td>Address: </td>
+          <td>{{_UserArray.address}} {{_UserArray.zipcode}}</td>
+        </tr> 
+      </table>
+
+      <mat-tab label="Edit My Information">
+      <table style="width: 100%" cellspacing="10" >
+          <tr>
+              <td>
+                  <mat-form-field>
+                  <mat-label>User Name</mat-label>
+                  <input matInput placeholder="Username" value="{{_UserArray.username}}" [disabled]="true">
+            
+                  </mat-form-field>
+              </td>
+          </tr>  
+          <tr>
+            <td>
+              <mat-form-field>
+                
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First Name*" [(ngModel)]="_firstname" name="firstname" #firstname="ngModel" value="_UserArray.firstName" required>
+                <mat-error *ngIf="firstname?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                <mat-error *ngIf="firstname?.errors?.minlength" style="color:blue"><i>Username has at least four characters.</i></mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last Name*" [(ngModel)]="_lastname" name="lastname" #lastname="ngModel" value="_UserArray.lastName" required>
+                <mat-error *ngIf="lastname?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+                <!-- <mat-error *ngIf="lastname?.errors?.minlength" style="color:blue"><i>Last Name has at least four characters.</i></mat-error> -->
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email*" [(ngModel)]="_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" #email="ngModel" value="_UserArray.email" required>
+                <mat-error *ngIf="email?.errors?.pattern" style="color:blue"><i>Email format incorrect</i></mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password *" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$" [(ngModel)]="_password" name="password" #password="ngModel" required>
+                <mat-error *ngIf="password?.errors?.pattern" style="color:blue"><i>Must contain at least 1 number, 1 uppercase, 1 lowercase letter, 1 special character, and at least 8 or more characters.</i></mat-error>
+                {{_password}}
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" placeholder="Confirm Password *" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$" [(ngModel)]="_confirm" name="confirm" #confirm="ngModel" required>
+                <small><p *ngIf="_password != _confirm" style="color:red"><i>Password does not match</i></p></small>
+                {{_confirm}}
+              </mat-form-field>
+            </td>
+          </tr>
+          
+      </table>
+      </mat-tab>
+      <table style="width: 100%" cellspacing="10" style="display: none" id="EditTable">
+        <tr>
+            <td>
+                <mat-form-field>
+                <mat-label>User Name</mat-label>
+                <input matInput placeholder="Username" value="{{_UserArray.username}}" [disabled]="true">
+          
+                </mat-form-field>
+            </td>
+        </tr>  
+      <tr>
+        <td>
+          <mat-form-field>
+            
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name*" [(ngModel)]="_firstname" name="firstname" #firstname="ngModel" value="_UserArray.firstName" required>
+            <mat-error *ngIf="firstname?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+            <!-- <mat-error *ngIf="firstname?.errors?.minlength" style="color:blue"><i>Username has at least four characters.</i></mat-error> -->
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name*" [(ngModel)]="_lastname" name="lastname" #lastname="ngModel" value="_UserArray.lastName" required>
+            <mat-error *ngIf="lastname?.errors?.required" style="color:blue"><i>You must enter a value</i></mat-error>
+            <!-- <mat-error *ngIf="lastname?.errors?.minlength" style="color:blue"><i>Last Name has at least four characters.</i></mat-error> -->
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email*" [(ngModel)]="_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" #email="ngModel" value="_UserArray.email" required>
+            <mat-error *ngIf="email?.errors?.pattern" style="color:blue"><i>Email format incorrect</i></mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Password *" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$" [(ngModel)]="_password" name="password" #password="ngModel" required>
+            <mat-error *ngIf="password?.errors?.pattern" style="color:blue"><i>Must contain at least 1 number, 1 uppercase, 1 lowercase letter, 1 special character, and at least 8 or more characters.</i></mat-error>
+            {{_password}}
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr></tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" placeholder="Confirm Password *" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$" [(ngModel)]="_confirm" name="confirm" #confirm="ngModel" required>
+            <small><p *ngIf="_password != _confirm" style="color:red"><i>Password does not match</i></p></small>
+            {{_confirm}}
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Address</mat-label>
+            <textarea matInput [(ngModel)]="_address" name="address" #address="ngModel" placeholder="Your Address" value="_UserArray.address" ></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Zip code</mat-label>
+            <input matInput type="text" [(ngModel)]="_zipcode" name="zipcode" #zipcode="ngModel" 
+            placeholder="Zipcode *" value="_UserArray.zipcode" />
+          </mat-form-field>
+        </td>
+      </tr> <tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Mobile Phone</mat-label>
+            <input matInput  type="text" [(ngModel)]="_txtEmpPhone" name="txtEmpPhone" #txtEmpPhone="ngModel" minlength="10" maxlength="10" name="txtEmpPhone" 
+            placeholder="Your Phone Number *" value="_UserArray.txtEmpPhone" />
+          </mat-form-field>
+        </td>
+      </tr>
+      
+    </table>
+
+
+
+
+    <!-- </form> -->
+  </mat-card-content>
+  <mat-card-actions>
+    <button id="View" style="visibility:visible" mat-raised-button (click)="View()" color="primary" ng>Edit</button>
+    
+  </mat-card-actions>
+  <mat-card-actions>
+    <button  id="Save" style="visibility:hidden" mat-raised-button (click)="Submit()" color="primary" ng>Save</button>
+    <button  id="Cancel" style="visibility: hidden;" mat-raised-button (click)="Cancel()" color="primary" ng>Cancel</button>
+  </mat-card-actions>
+</mat-card>

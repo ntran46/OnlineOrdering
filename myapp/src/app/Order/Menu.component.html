@@ -1,0 +1,38 @@
+<br/><br/>
+
+<div class="container4">
+    <!-- Show all items -->
+    <h3 style="color: brown;"><b>Menu</b></h3>
+    <br/><br/>
+    <div *ngFor="let category of menu">
+
+        <mat-accordion >
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    {{category.category}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        <i>Category description</i>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-card-content>
+                    <table *ngFor="let item of category.items">
+                        <tr>
+                            <td style="width: 5cm;">{{item.productName}}</td>
+                            <!-- <td style="width: 5cm;"></td> -->
+                            <td style="width: 5cm;">{{item.description}}</td>
+                            <!-- <td style="width: 5cm;"></td> -->
+                            <td style="width: 5cm;">{{item.price | currency:'USD':true }}</td>
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-expansion-panel>
+        </mat-accordion> 
+
+        
+    </div>
+</div>
+<br/>
+{{_errorMessage}}

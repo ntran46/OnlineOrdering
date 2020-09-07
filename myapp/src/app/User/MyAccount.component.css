@@ -1,0 +1,22 @@
+.View {
+  display: inline;
+}
+.Edit {
+  visibility: hidden;
+}
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0px;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 500px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}

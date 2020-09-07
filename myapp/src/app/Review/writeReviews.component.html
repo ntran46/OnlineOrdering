@@ -1,0 +1,47 @@
+<div *ngIf="reqInfo.authenticated">
+<br/><br/>
+
+<h2 style="text-align: center; width: 6cm;" ><mat-icon class="material-icons md-18">feedback</mat-icon>Feedback</h2>
+
+<table>
+    <tr>
+        <th style="text-align: right;width:20px">Restaurant</th>
+        <th></th>
+        <th><h3>{{_RestaurantItem.restaurantName}}</h3></th>
+    </tr>
+    <tr>
+        <td style="text-align: right; width: 6cm;"><b>How do you feel?</b> <mat-icon>face</mat-icon></td>
+        <td></td>
+        <td><textarea style="height: 3em;width: 15em;"name="review" type="text" #review="ngModel" [(ngModel)]="_review" ></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right; width: 6cm;"><b>How much you can rate your experience?</b><mat-icon>favorite</mat-icon></td>
+        <td></td>
+        <td><input style="vertical-align: middle;width: 15em; height: 2em;" name="rating" #rating="ngModel" [(ngModel)]="_rating" type="number" min="0" max="5"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    <td> 
+        <input type="submit" (click)="Submit(_RestaurantItem._id)" 
+                style="vertical-align: middle;width: 13em;  height: 1.9em; text-align: center;">
+    </td>
+    <td> 
+        <input id="myButton" type="button" value="Cancel" (click)="Cancel()"
+                style="vertical-align: middle;width: 13em;  height: 1.9em; text-align: center;">
+    </td>
+    </tr>
+</table>
+
+<br/>
+<table>
+    <tr>
+        <td style="width: 77px;"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</div>

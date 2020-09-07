@@ -1,0 +1,40 @@
+{
+  "name": "sept18c",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "-": "0.0.1",
+    "@angular/animations": "^9.1.4",
+    "@angular/cdk": "^9.2.1",
+    "@angular/common": "^9.1.4",
+    "@angular/core": "^9.1.4",
+    "@angular/forms": "^9.1.4",
+    "@angular/material": "^9.2.1",
+    "@angular/platform-browser": "^9.1.4",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "bson-ext": "^2.0.5",
+    "cors": "^2.8.5",
+    "ejs": "^2.7.4",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-sessions": "^1.0.6",
+    "hammerjs": "^2.0.8",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb-extjson": "^2.1.5",
+    "mongoose": "^5.9.10",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
+    "rxjs": "^6.5.5",
+    "zone": "^0.3.4"
+  }
+}

@@ -1,0 +1,34 @@
+<br/><br/>
+
+<!-- Show all items -->
+<h3>All History Order Records</h3>
+<br/>
+<div class="container4">
+    <table id="or_his">
+        <tr>
+            <th>Order No.</th>
+            <th style="width: 6cm;">Order Date & Time</th>
+            <th>Server</th>
+            <th>After Tax Total</th>
+        </tr>
+        <tr *ngFor="let order of _orderHistory">
+            <td>
+                {{order._id}}.
+            </td>
+            <td>
+                {{order.orderDate}}
+            </td>
+            <td>
+                {{order.serverName}}
+            </td>
+            <td style="width: 5cm;">
+                {{order.total | currency:'USD':true}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<br/>
+{{_errorMessage}}
+
+    
